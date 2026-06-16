@@ -22,10 +22,21 @@ public class User {
     private Long id;
 
     @NotBlank
+    private String name;
+
+    @NotBlank
     @Email
     private String email;
 
     @NotBlank
     private String phone;
+
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @Builder.Default
+    private List<Address> addresses = new ArrayList<>();
 
 }
