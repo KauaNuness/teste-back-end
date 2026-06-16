@@ -1,6 +1,8 @@
 package com.kaua.testebackend.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -19,8 +21,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
+    @Email
     private String email;
 
+    @NotBlank
     private String phone;
 
 }
