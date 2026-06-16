@@ -20,7 +20,7 @@ public class ViaCepService {
         if (response == null ||
         Boolean.TRUE.equals(response.getErro())){
 
-            throw new CepInvalidException("Invalid CEP");
+            throw new CepInvalidException("CEP Inválido");
         }
 
         return response;
