@@ -2,6 +2,7 @@ package com.kaua.testebackend.service;
 
 import com.kaua.testebackend.client.ViaCepClient;
 import com.kaua.testebackend.dto.ViaCepResponseDTO;
+import com.kaua.testebackend.exception.CepInvalidException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +20,7 @@ public class ViaCepService {
         if (response == null ||
         Boolean.TRUE.equals(response.getErro())){
 
-            throw new IllegalArgumentException(
-                    "Invalid CEP"
-            );
+            throw new CepInvalidException("Invalid CEP");
         }
 
         return response;
